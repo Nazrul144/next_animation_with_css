@@ -2,18 +2,25 @@
 import React, { useState } from 'react';
 const About = () => {
 
-    const [disableButton, setDisableButton] = useState('')
+    const [disableButton, setDisableButton] = useState('') // Disable button state
+    const [inputValue, setInputValue] = useState('') // Input state
 
     const handleButton = ()=>{
         setDisableButton('not-allowed')
     }
 
+    const handleInputChange = (event)=>{
+        setInputValue(event.target.value)
+    }
+
+    
+   
     return (
         <div className='w-[1100px] mx-auto '>
              <div className='mt-20'>
                 <h1>Your Coupon Code: BsgkC</h1>
-                <h1 className='text-center font-black'>Received Coupon:</h1>
-                <input className='border-[1px] border-pink-700 px-4 py-2 rounded-lg' type="text" placeholder='Write the coupon code' />
+                <h1 className='text-center font-black'>Received Coupon:{inputValue}</h1>
+                <input onChange={handleInputChange} value={inputValue} className='border-[1px] border-pink-700 px-4 py-2 rounded-lg' type="text" placeholder='Write the coupon code' />
                 <button style={{cursor: disableButton}} onClick={handleButton} className='bg-purple-400 rounded-lg px-4 py-2  cursor-pointer'>
                 Submit
                 </button>
