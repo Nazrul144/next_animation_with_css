@@ -10,7 +10,13 @@ const Wedding = () => {
     }
 
     const handleMoney = ()=>{
-        setMoney(inputValue)
+        if(inputValue >= 500){
+           setMoney(inputValue)
+        }else{
+            alert('Pay at least 500 taka!');
+            setInputValue('')
+        }
+      
     }
     return (
         <div className='w-[1100px] mx-auto mt-10'>
