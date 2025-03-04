@@ -53,8 +53,8 @@ const Page = () => {
 
     return (
         <div>
-            <div className='w-[1100px] mx-auto mt-24'>
-                <h1 style={{fontSize: `${textSize}px`, color:color}} className='text-3xl'>I love my country</h1>
+            <div>
+                <h1 style={{fontSize: `${textSize}px`, color:color}} className='text-3xl mt-16'>I love my country</h1>
                 <button onClick={handleText} className='bg-green-600 px-4 py-2 rounded-lg cursor-pointer '>click</button>
             </div>
             <div className='w-[1100px] mx-auto mt-8'>
@@ -76,7 +76,7 @@ const Page = () => {
                <button onClick={handleDecrementButton} className=' text-2xl font-extrabold cursor-pointer bg-purple-500 px-5 py-2 rounded-lg ml-2'>-</button>
             </div>
             <div className='w-[1100px] mx-auto mt-4'>
-                <p style={{display: hide}} >Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, velit dolores veniam, aliquid maiores sed magnam pariatur quisquam iusto distinctio asperiores earum quis perferendis rem voluptate adipisci quas cupiditate odit.</p>
+                <p style={{display: hide}} >Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, velit dolores veniam, aliquid maiores sed magnam pariatur quisquam iusto distinctio asperiores earum quis perferendis rem voluptate adipisci quas cupiditate odit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, unde modi. Magnam reprehenderit, blanditiis dolor voluptatum perspiciatis nesciunt alias quia deserunt sit. Voluptate deserunt aliquid eveniet minus corporis incidunt voluptas optio eum, dolore beatae enim commodi est non totam consequatur odit iste nobis eos reprehenderit ullam reiciendis! Ex, magni sapiente?</p>
                 <button onClick={handleHideAndVisible} className='bg-pink-950 text-white rounded-lg px-4 py-2 cursor-pointer'>
                     {
                         hide === 'none' ? 'Visible' : 'Hidden'
