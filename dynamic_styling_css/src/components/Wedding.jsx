@@ -3,15 +3,25 @@ import React, { useState } from 'react';
 
 const Wedding = () => {
 
-    const [inputValue, setInputValue] = useState('')
+    const [inputValue, setInputValue] = useState()
     const [money, setMoney] = useState()
     const handleInput = (event)=>{
+        
         setInputValue(event.target.value)
     }
 
+
+    console.log(typeof inputValue);
+
     const handleMoney = ()=>{
-        if(inputValue >= 500){
+        if(isNaN(inputValue)){
+            alert('String is not allowed') //Input validation check number or string.
+            setInputValue('')
+        }
+        else if(inputValue >= 500){
            setMoney(inputValue)
+           setInputValue('')
+        
         }else{
             alert('Pay at least 500 taka!');
             setInputValue('')
