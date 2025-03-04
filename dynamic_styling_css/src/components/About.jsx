@@ -12,11 +12,13 @@ const About = () => {
     const handleButton = ()=>{
         setDisableButton('not-allowed')
         setShowCoupon(inputValue)
+        setInputValue('')
         
     }
 
     const handleInputChange = (event)=>{
         setInputValue(event.target.value)
+       
     }
 
     
