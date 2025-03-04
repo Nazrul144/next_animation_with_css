@@ -8,8 +8,9 @@ const Page = () => {
 
     const [increment, setIncrement] = useState(0) //Increment State
     const [decrement, setDecrement] = useState(0) //Decrement State
-
     const [incrementDecrement, setIncrementDecrement] = useState(0) //Increment and Decrement together.
+
+    const [hide, setHide] = useState('none');
 
     const [colorIndex, setColorIndex] = useState(0)
     const colors = ['red', 'blue', 'green','orange','black', 'pink', 'gray', 'cyan', 'purple'] //color array
@@ -41,6 +42,15 @@ const Page = () => {
     }
 
 
+    const handleHideAndVisible = ()=>{
+        // setHide('none')
+        // if(hide === 'none'){
+        //     setHide('block')
+        // }
+        setHide((prev)=> prev === 'none' ? 'block' : 'none')
+    }
+
+
     return (
         <div>
             <div className='w-[1100px] mx-auto mt-24'>
@@ -65,6 +75,15 @@ const Page = () => {
                <button onClick={handleIncrementButton} className=' text-2xl font-extrabold cursor-pointer bg-cyan-500 px-4 py-2 rounded-lg ml-2'>+</button>
                <button onClick={handleDecrementButton} className=' text-2xl font-extrabold cursor-pointer bg-purple-500 px-5 py-2 rounded-lg ml-2'>-</button>
             </div>
+            <div className='w-[1100px] mx-auto mt-4'>
+                <p style={{display: hide}} >Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, velit dolores veniam, aliquid maiores sed magnam pariatur quisquam iusto distinctio asperiores earum quis perferendis rem voluptate adipisci quas cupiditate odit.</p>
+                <button onClick={handleHideAndVisible} className='bg-pink-950 text-white rounded-lg px-4 py-2 cursor-pointer'>
+                    {
+                        hide === 'none' ? 'Visible' : 'Hidden'
+                    }
+                </button>
+            </div>
+
         </div>
     );
 }
