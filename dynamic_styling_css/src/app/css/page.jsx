@@ -9,6 +9,8 @@ const Page = () => {
     const [increment, setIncrement] = useState(0) //Increment State
     const [decrement, setDecrement] = useState(0) //Decrement State
 
+    const [incrementDecrement, setIncrementDecrement] = useState(0) //Increment and Decrement together.
+
     const [colorIndex, setColorIndex] = useState(0)
     const colors = ['red', 'blue', 'green','orange','black', 'pink', 'gray', 'cyan', 'purple'] //color array
 
@@ -29,6 +31,16 @@ const Page = () => {
     const handleDecrement = ()=>{
         setDecrement(decrement -1)
     }
+    
+    const handleIncrementButton =()=>{
+        setIncrementDecrement(incrementDecrement + 1);
+    }
+
+    const handleDecrementButton = ()=>{
+        setIncrementDecrement((prev)=> prev > 0 ? prev -1 : prev) // logic: If zero is not greater than zero so set the previous value. If greater subtract 1 from prev
+    }
+
+
     return (
         <div>
             <div className='w-[1100px] mx-auto mt-24'>
@@ -45,6 +57,13 @@ const Page = () => {
                 
                 <span className='bg-pink-500 text-white px-12 py-2 rounded-lg font-bold '>{decrement}</span> <br />
                 <button onClick={handleDecrement} className='bg-pink-500 px-4 py-2 rounded-lg cursor-pointer mt-4'>Decrement</button>
+            </div>
+            <div className='w-[1100px] mx-auto mt-8'>
+                <div className='flex gap-12'>
+                    <h3 className='bg-red-300 rounded-lg px-4 py-2 mb-2 text-xl ml-8 font-extrabold'>{incrementDecrement}</h3>
+                </div>
+               <button onClick={handleIncrementButton} className=' text-2xl font-extrabold cursor-pointer bg-cyan-500 px-4 py-2 rounded-lg ml-2'>+</button>
+               <button onClick={handleDecrementButton} className=' text-2xl font-extrabold cursor-pointer bg-purple-500 px-5 py-2 rounded-lg ml-2'>-</button>
             </div>
         </div>
     );
