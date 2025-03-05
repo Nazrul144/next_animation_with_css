@@ -9,7 +9,8 @@ const About = () => {
     const [inputValue, setInputValue] = useState('') // Input state
     const [showCoupon, setShowCoupon] = useState('') //ShowCoupon Sate.
 
-    const [background, setBackground] = useState('')
+    const [background, setBackground] = useState(0)
+    const colors = ['red','blue','orange', 'green', 'gray'];
 
     const handleButton = ()=>{
         if(inputValue === 'BsgkC'){
@@ -28,9 +29,13 @@ const About = () => {
        
     }
 
+    const handleBackground = ()=>{
+        setBackground((prev)=> (prev +1)% colors.length)
+    }
+
 
     return (
-        <div style={{backgroundColor: background}} className='w-[1100px] mx-auto '>
+        <div style={{backgroundColor: colors[background]}} className='w-[1100px] mx-auto '>
              <div className='mt-20'>
                 <h1>Your Coupon Code: BsgkC</h1>
                 <h1 className='text-center font-black'>Received Coupon:{showCoupon}</h1>
@@ -39,7 +44,7 @@ const About = () => {
                 Submit
                 </button>
                 <div className='mt-12'>
-                <button onClick={()=>{setBackground('orange')}} className='bg-red-900 text-white rounded-lg px-4 py-2 cursor-pointer'>Change BG</button>
+                <button onClick={handleBackground} className='bg-red-900 text-white rounded-lg px-4 py-2 cursor-pointer'>Change BG</button>
                 </div>
             </div>
 
