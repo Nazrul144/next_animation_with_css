@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const Wedding = () => {
 
@@ -20,20 +21,21 @@ const Wedding = () => {
 
     const handleMoney = ()=>{
         if(isNaN(inputValue)){
-            alert('String is not allowed') //Input validation check number or string.
+            toast.error('String is not allowed!') //Input validation check number or string.
             setInputValue('')
         }
         else if(!inputValue){
-            alert('Empty field is not allowed!')
+            toast.error('Empty field is not allowed!')
         }
         else if(inputValue >= 500){
            setMoney(inputValue)
            setInputValue('')
            setShowImage((prev)=> prev === 'none'? 'block' : 'none')
            setDisableButton(true)
+           toast.success('Your order has been successful!')
         
         }else{
-            alert('Pay at least 500 taka!');
+            toast.error('Pay at least 500 Taka!')
             setInputValue('')
         }
       
@@ -44,7 +46,7 @@ const Wedding = () => {
             <div>
                 <h1 className='font-bold'>Pay: 500 Taka For KFC Chicken</h1>
                 <input onChange={handleInput} value={inputValue} className='px-4 py-2 rounded-lg border-2 border-amber-300' type="text" placeholder='Pay your bill' />
-                <button disabled={disableButton} onClick={handleMoney} className={`${disableButton ? 'cursor-not-allowed':'cursor-pointer'} px-4 py-2 rounded-lg bg-green-600 text-white `}>Submit</button>
+                <button  onClick={handleMoney} className={`${disableButton ? 'cursor-not-allowed':'cursor-pointer'} px-4 py-2 rounded-lg bg-green-600 text-white `}>Submit</button>
             </div>
             <h1 className='font-bold'>You have paid: {money}</h1>
             <div>
