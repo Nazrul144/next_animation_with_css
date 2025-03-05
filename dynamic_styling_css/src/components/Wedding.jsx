@@ -53,6 +53,17 @@ const Wedding = () => {
                 <Image style={{display: showImage}} src='/kfc.webp' alt='KFC_Image' width={400} height={300} />
             </div>
             </div>
+        <div>
+            <div className='flex gap-6 items-center'>
+                <div><h1 className='font-bold text-xl'>Open Your Lock</h1></div>
+                <div><Image src='/lock.jpg' alt='Lock' width={100} height={100}/></div>
+            </div>
+            <div>
+                <h1>Your password is:</h1>
+                <input className='border-2 border-r-amber-500 px-4 py-2 rounded-lg' type="password" placeholder='Enter your password' />
+                <button className='bg-amber-600 px-4 py-2 rounded-lg text-white'>Send</button>
+            </div>
+        </div>
         </div>
     );
 }
