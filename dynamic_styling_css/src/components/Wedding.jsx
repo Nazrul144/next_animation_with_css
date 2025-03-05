@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 
 const Wedding = () => {
 
-    const [inputValue, setInputValue] = useState()
+    const [inputValue, setInputValue] = useState('')
     const [money, setMoney] = useState()
     const [showImage, setShowImage] = useState('none');
-    const [disableButton, setDisableButton] = useState('')
+    const [disableButton, setDisableButton] = useState(false)
 
 
     const handleInput = (event)=>{
@@ -22,12 +22,15 @@ const Wedding = () => {
         if(isNaN(inputValue)){
             alert('String is not allowed') //Input validation check number or string.
             setInputValue('')
-            setDisableButton('not-allowed')
+        }
+        else if(!inputValue){
+            alert('Empty field is not allowed!')
         }
         else if(inputValue >= 500){
            setMoney(inputValue)
            setInputValue('')
            setShowImage((prev)=> prev === 'none'? 'block' : 'none')
+           setDisableButton(true)
         
         }else{
             alert('Pay at least 500 taka!');
@@ -40,8 +43,8 @@ const Wedding = () => {
             <div className='flex gap-10'>
             <div>
                 <h1 className='font-bold'>Pay: 500 Taka For KFC Chicken</h1>
-                <input onChange={handleInput} value={inputValue} className='px-4 py-2 rounded-lg border-[1px] border-amber-300' type="text" placeholder='Pay your bill' />
-                <button style={{cursor: disableButton}} onClick={handleMoney} className='px-4 py-2 rounded-lg bg-green-600 text-white cursor-pointer'>Submit</button>
+                <input onChange={handleInput} value={inputValue} className='px-4 py-2 rounded-lg border-2 border-amber-300' type="text" placeholder='Pay your bill' />
+                <button disabled={disableButton} onClick={handleMoney} className={`${disableButton ? 'cursor-not-allowed':'cursor-pointer'} px-4 py-2 rounded-lg bg-green-600 text-white `}>Submit</button>
             </div>
             <h1 className='font-bold'>You have paid: {money}</h1>
             <div>
