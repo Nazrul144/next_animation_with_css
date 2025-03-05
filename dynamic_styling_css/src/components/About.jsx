@@ -10,7 +10,7 @@ const About = () => {
     const [showCoupon, setShowCoupon] = useState('') //ShowCoupon Sate.
 
     const [background, setBackground] = useState(0)
-    const colors = ['red','blue','orange', 'green', 'gray'];
+    const colors = ['white','purple','orange', 'green', 'gray', 'yellow'];
 
     const handleButton = ()=>{
         if(inputValue === 'BsgkC'){
