@@ -15,6 +15,8 @@ const Wedding = () => {
 
     const [color, setColor] = useState('white')
 
+    const [convertText, setConvertText] = useState('uppercase')
+
 
     const handleInput = (event)=>{
         
@@ -49,6 +51,10 @@ const Wedding = () => {
         setColor((prev)=> prev === 'white' ? 'pink' : 'white')
     }
 
+    const handleText = ()=>{
+        setConvertText((prev)=> prev === 'uppercase' ? 'lowercase' : 'uppercase')
+    }
+
     return (
         <div style={{backgroundColor: color}} className='w-[1100px] mx-auto mt-10'>
             <button onClick={handleBackgroundColor} className='bg-amber-900 px-4 py-2 rounded-lg text-white mb-4 cursor-pointer'>Change Background Color</button>
@@ -76,6 +82,10 @@ const Wedding = () => {
                     showPassword ? <FaEye/> : <FaEyeSlash />
                 }
                 </span>
+            </div>
+            <div>
+                <h1 className='text-cyan-600 font-extrabold text-xl mt-6'>Toggle Text Button</h1>
+                <button style={{textTransform:convertText}} onClick={handleText} className='px-4 py-2 rounded-lg bg-green-600 text-white cursor-pointer'>Toggle</button>
             </div>
         </div>
         </div>
