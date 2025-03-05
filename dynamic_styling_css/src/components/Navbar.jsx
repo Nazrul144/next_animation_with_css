@@ -22,6 +22,10 @@ const Navbar = () => {
             title : 'Wedding',
             path: '/wedding'
         },
+        {
+            title : 'Modal',
+            path: '/modal'
+        },
     ]
     return (
         <div className='bg-cyan-500 w-[1400px] mx-auto sticky top-0 '>

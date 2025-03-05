@@ -62,7 +62,7 @@ const Wedding = () => {
             <div>
                 <h1 className='font-bold'>Pay: 500 Taka For KFC Chicken</h1>
                 <input onChange={handleInput} value={inputValue} className='px-4 py-2 rounded-lg border-2 border-amber-300' type="text" placeholder='Pay your bill' />
-                <button  onClick={handleMoney} className={`${disableButton ? 'cursor-not-allowed':'cursor-pointer'} px-4 py-2 rounded-lg bg-green-600 text-white `}>Submit</button>
+                <button disabled={disableButton} onClick={handleMoney} className={`${disableButton ? 'cursor-not-allowed':'cursor-pointer'} px-4 py-2 rounded-lg bg-green-600 text-white `}>Submit</button>
             </div>
             <h1 className='font-bold '>You have paid: {money}</h1>
             <div>
