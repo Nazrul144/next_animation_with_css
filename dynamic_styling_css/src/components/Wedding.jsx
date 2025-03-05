@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Wedding = () => {
 
@@ -9,6 +10,8 @@ const Wedding = () => {
     const [money, setMoney] = useState()
     const [showImage, setShowImage] = useState('none');
     const [disableButton, setDisableButton] = useState(false)
+
+    const [showPassword, setShowPassword] = useState(false)
 
 
     const handleInput = (event)=>{
@@ -38,8 +41,8 @@ const Wedding = () => {
             toast.error('Pay at least 500 Taka!')
             setInputValue('')
         }
-      
     }
+
     return (
         <div className='w-[1100px] mx-auto mt-10'>
             <div className='flex gap-10'>
@@ -59,9 +62,13 @@ const Wedding = () => {
                 <div><Image src='/lock.jpg' alt='Lock' width={100} height={100}/></div>
             </div>
             <div>
-                <h1>Your password is:</h1>
-                <input className='border-2 border-r-amber-500 px-4 py-2 rounded-lg' type="password" placeholder='Enter your password' />
+                <input className='border-2 border-r-amber-500 px-4 py-2 rounded-lg' type={showPassword ? 'text' : 'password'} placeholder='Enter your password' />
                 <button className='bg-amber-600 px-4 py-2 rounded-lg text-white'>Send</button>
+                <span onClick={()=> setShowPassword(!showPassword)}>
+                {
+                    showPassword ? <FaEye/> : <FaEyeSlash />
+                }
+                </span>
             </div>
         </div>
         </div>
