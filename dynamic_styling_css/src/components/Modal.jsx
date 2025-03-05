@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 
 const Modal = () => {
 
-    const [showModal, setShowModal] = useState('none')
+    const [showModal, setShowModal] = useState('none') //Show modal state
+    const [changeFont, setChangeFont] = useState('italic') // Font state
 
 
     const handleModal = ()=>{
@@ -12,6 +13,10 @@ const Modal = () => {
 
     const handleClose = ()=>{
         setShowModal('none')
+    }
+
+    const handleFont = ()=>{
+        setChangeFont((prev)=> prev === 'italic' ? 'normal' : 'italic')
     }
 
     return (
@@ -29,6 +34,7 @@ const Modal = () => {
                    </div>
                 </div>
             </div>
+            <h1 onClick={handleFont} style={{fontStyle: changeFont}} className='mt-20 text-2xl'>Change Font Style</h1>
         </div>
     );
 }
